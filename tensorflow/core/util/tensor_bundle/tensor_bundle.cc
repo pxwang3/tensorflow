@@ -564,7 +564,7 @@ absl::Status BundleWriter::Finish() {
     table::TableBuilder builder(options, file.get());
     // Header entry.
     BundleHeaderProto header;
-    header.set_num_shards(1);
+    header.set_num_shards(3);  // todo-ygu: hacky  // also need to clean up the 00000.00001 file // also need to consider the case where original n_shards=1: need to delete some code in BundleWriter constructor
     header.set_endianness(BundleHeaderProto::LITTLE);
     if (!port::kLittleEndian) header.set_endianness(BundleHeaderProto::BIG);
     VersionDef* version = header.mutable_version();
