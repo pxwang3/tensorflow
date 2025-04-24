@@ -157,7 +157,7 @@ class BundleWriter {
 
   absl::Status status() const { return status_; }
 
- private:
+// private:
   Env* const env_;  // Not owned.
   const Options options_;
   const std::string prefix_;
@@ -312,7 +312,7 @@ class BundleReader {
 
   std::string DebugString();
 
- private:
+// private:
   // Seeks for "key" and reads the metadata proto.
   // On non-OK return, clears "entry" for the caller.
   // REQUIRES: status().ok()
